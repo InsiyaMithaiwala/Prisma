@@ -22,4 +22,13 @@ function main() {
         });
     });
 }
-main();
+main()
+    .then(() => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("done");
+    yield prisma.$disconnect();
+}))
+    .catch((e) => __awaiter(void 0, void 0, void 0, function* () {
+    console.error(e);
+    yield prisma.$disconnect();
+    process.exit(1);
+}));
